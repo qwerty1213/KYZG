@@ -13,7 +13,7 @@ public class UrlUtils {
     public static final String getDetail = BASE_URL + "action/api/news_detail";
     //热点
 
-    public static final String getRedian = BASE_URL+"action/api/news_list";
+    public static final String getRedian =  BASE_URL+"action/api/news_list";
 
     //博客
 
