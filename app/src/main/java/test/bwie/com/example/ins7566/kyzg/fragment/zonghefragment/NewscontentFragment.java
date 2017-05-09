@@ -64,7 +64,7 @@ public class NewscontentFragment extends BaseFragment {
 //加载数据
     @Override
     protected void loadData() {
-getData();
+        getData();
     }
 
     @Override
