@@ -1,6 +1,5 @@
 package test.bwie.com.example.ins7566.kyzg.activity;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Process;
 import android.support.v4.app.FragmentManager;
@@ -20,7 +19,7 @@ import test.bwie.com.example.ins7566.kyzg.R;
 import test.bwie.com.example.ins7566.kyzg.base.BaseActivity;
 import test.bwie.com.example.ins7566.kyzg.base.BaseFragment;
 import test.bwie.com.example.ins7566.kyzg.config.ConfigFragment;
-import test.bwie.com.example.ins7566.kyzg.fragment.zonghefragment.NewsFragment;
+import test.bwie.com.example.ins7566.kyzg.fragment.zonghe.NewsFragment;
 
 public class MainActivity extends BaseActivity {
     @BindView(R.id.Main_TitleBar)
@@ -69,7 +68,7 @@ public class MainActivity extends BaseActivity {
     //加载数据执行方法
     @Override
     protected void loadData() {
-
+        ConfigFragment.getInstance().init().start(NewsFragment.class).build();
 
     }
 

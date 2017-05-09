@@ -1,17 +1,14 @@
-package test.bwie.com.example.ins7566.kyzg.fragment.zonghefragment;
+package test.bwie.com.example.ins7566.kyzg.fragment.zonghe;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import test.bwie.com.example.ins7566.kyzg.App;
 import test.bwie.com.example.ins7566.kyzg.R;
@@ -20,37 +17,42 @@ import test.bwie.com.example.ins7566.kyzg.adapter.FragAdapter;
 import test.bwie.com.example.ins7566.kyzg.base.BaseFragment;
 
 /**
- * Created by INS7566 on 2017/5/8.
+ * Created by Administrator on 2017/4/11.
  */
 
 public class NewsFragment extends BaseFragment {
-    @BindView(R.id.newsTabLayout)
-    TabLayout newsTabLayout;
-    @BindView(R.id.newsViewPager)
-    ViewPager newsViewPager;
     Unbinder unbinder;
     private List<String> listName;
     private List<BaseFragment> mList;
     private FragAdapter adapter;
+    @BindView(R.id.newsTabLayout)
+    TabLayout newsTabLayout;
+    @BindView(R.id.newsViewPager)
+    ViewPager newsViewPager;
+
+
+    //找ID布局文件
     @Override
     protected int layoutId() {
         return R.layout.news_fragment;
     }
 
+    //初始化组件
     @Override
     protected void initView(View view) {
 
     }
 
+    //加载数据
     @Override
     protected void initData() {
         listName = new ArrayList<>();
         mList = new ArrayList<>();
         //加载Fragment类
-        mList.add(new NewscontentFragment());
-        mList.add(new NewscontentFragment());
-        mList.add(new NewscontentFragment());
-        mList.add(new NewscontentFragment());
+        mList.add(new NewsconterFragment());
+        mList.add(new NewsconterFragment());
+        mList.add(new NewsconterFragment());
+        mList.add(new NewsconterFragment());
 
         listName.add("资讯");
         listName.add("博客");
@@ -59,8 +61,10 @@ public class NewsFragment extends BaseFragment {
         adapter = new FragAdapter(getFragmentManager(), listName, mList);
         newsViewPager.setAdapter(adapter);
         newsTabLayout.setupWithViewPager(newsViewPager);
+
     }
 
+    //监听事件
     @Override
     protected void initListener() {
 
@@ -79,7 +83,6 @@ public class NewsFragment extends BaseFragment {
     @Override
     protected void show() {
         unTitleBar();
-
     }
 
     @Override
