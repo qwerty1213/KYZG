@@ -124,6 +124,7 @@ public class NewsconterFragment extends BaseFragment {
 
         mList = new ArrayList<>();
         listView = new ArrayList<>();
+
         adapter = new NewsConterAdapter(getActivity(), mList);
         lunboPullRecycler.setAdapter(adapter);
 
