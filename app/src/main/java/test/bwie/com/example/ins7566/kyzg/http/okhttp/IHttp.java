@@ -11,5 +11,5 @@ import test.bwie.com.example.ins7566.kyzg.http.callback.MyCallback;
 public interface IHttp {
     //请求数据用的方法
     void Post(String url, Map<String, String> params, MyCallback callback);
-    void Get(String url,Map<String ,String> params,MyCallback callback);
+    void Get(String url, Map<String, String> params, MyCallback callback);
 }
