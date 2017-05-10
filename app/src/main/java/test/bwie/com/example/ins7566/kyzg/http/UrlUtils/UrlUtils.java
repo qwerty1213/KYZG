@@ -12,32 +12,20 @@ public class UrlUtils {
     //详情
     public static final String getDetail = BASE_URL + "action/api/news_detail";
     //热点
-
     public static final String getRedian =  BASE_URL+"action/api/news_list";
-
     //博客
-
     public static final String getBlog = BASE_URL+"action/api/blog_list";
-
     //博客详情
-
     public static final String getBlogDetail = BASE_URL+"action/api/blog_detail";
-
     //搜索
     public static final String getSearch = BASE_URL +"action/api/search_list";
-
     //最新动弹
-
     public static final String getNewDT = BASE_URL+"action/api/tweet_list";
-
     //热门动弹
-
     public static final String ReMenDT = BASE_URL+"action/api/tweet_list";
-
     /**
      * 发表动弹
      */
-
     public static final String sendTweet = BASE_URL+"action/api/tweet_pub";
 
     /*
@@ -48,13 +36,10 @@ public class UrlUtils {
      * 获取粉丝关注
      */
     public static final String getFenSi = BASE_URL+"action/api/friends_list";
-
-
     public static final String DianZan = BASE_URL+"action/api/tweet_like";
 
     //取消点赞
-    public static final String DisDianZan = BASE_URL+"action/api/tweet_unlike";
-
+    // public static final String DisDianZan = BASE_URL+"action/api/tweet_unlike";
 
     /**
      * 动弹评论

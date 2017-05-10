@@ -52,7 +52,7 @@ public class NewsconterFragment extends BaseFragment {
             switch (msg.what) {
                 case CODE_start:
                     LunPoTuViewPager.setCurrentItem(currentItem++);
-                    handler.sendEmptyMessageDelayed(CODE_start, 2000);
+                    handler.sendEmptyMessageDelayed(CODE_start, 1000);
                     break;
                 case CODE_END:
                     handler.removeMessages(CODE_start);
@@ -91,26 +91,26 @@ public class NewsconterFragment extends BaseFragment {
         lunboPullRecycler.setPullToRefreshListener(new PullToRefreshListener() {
             @Override
             public void onRefresh() {
-                lunboPullRecycler.postDelayed(new Runnable() {
+                lunboPullRecycler.post(new Runnable() {
                     @Override
                     public void run() {
                         lunboPullRecycler.setRefreshComplete();
                         mList.clear();
                         initData();
                     }
-                }, 2000);
+                });
             }
 
             @Override
             public void onLoadMore() {
-                lunboPullRecycler.postDelayed(new Runnable() {
+                lunboPullRecycler.post(new Runnable() {
                     @Override
                     public void run() {
                         lunboPullRecycler.setLoadMoreComplete();
                         Index++;
                         loadData();
                     }
-                }, 2000);
+                });
             }
         });
     }

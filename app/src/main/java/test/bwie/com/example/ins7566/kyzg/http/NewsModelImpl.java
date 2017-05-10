@@ -27,4 +27,20 @@ public class NewsModelImpl implements INewsModel {
         map.put("id",id);
         HttpFactory.create().Get(UrlUtils.getDetail,map,callback);
     }
+
+    @Override
+    public void Blog(String type, String pageIndex, String pageSize, MyCallback callback) {
+        Map<String,String> params=new HashMap<>();
+        params.put("type",type);
+        params.put("pageIndex",pageIndex);
+        params.put("pageSize",pageSize);
+        HttpFactory.create().Get(UrlUtils.getBlog,params,callback);
+    }
+
+    @Override
+    public void BlogDetail(String id, MyCallback callback) {
+        Map<String,String> map=new HashMap<>();
+        map.put("id",id);
+        HttpFactory.create().Get(UrlUtils.getBlogDetail,map,callback);
+    }
 }

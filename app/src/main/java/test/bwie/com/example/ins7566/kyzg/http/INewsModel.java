@@ -12,5 +12,8 @@ public interface INewsModel {
     //咨询详情
     void NewsDetail(String id,MyCallback callback);
     //博客
+    void Blog(String type,String pageIndex,String pageSize,MyCallback callback);
+    //博客详情
+    void BlogDetail(String id,MyCallback callback);
 
 }
