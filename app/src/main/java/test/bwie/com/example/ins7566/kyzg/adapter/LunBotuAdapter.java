@@ -6,9 +6,6 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-/**
- * Created by Administrator on 2017/4/21.
- */
 
 public class LunBotuAdapter extends PagerAdapter {
     private List<View> mList;

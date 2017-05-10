@@ -16,10 +16,6 @@ import test.bwie.com.example.ins7566.kyzg.activity.MainActivity;
 import test.bwie.com.example.ins7566.kyzg.adapter.FragAdapter;
 import test.bwie.com.example.ins7566.kyzg.base.BaseFragment;
 
-/**
- * Created by Administrator on 2017/4/11.
- */
-
 public class NewsFragment extends BaseFragment {
     Unbinder unbinder;
     private List<String> listName;
@@ -50,9 +46,9 @@ public class NewsFragment extends BaseFragment {
         mList = new ArrayList<>();
         //加载Fragment类
         mList.add(new NewsconterFragment());
-        mList.add(new NewsconterFragment());
-        mList.add(new NewsconterFragment());
-        mList.add(new NewsconterFragment());
+//        mList.add(new NewsconterFragment());
+//        mList.add(new NewsconterFragment());
+//        mList.add(new NewsconterFragment());
 
         listName.add("资讯");
         listName.add("博客");

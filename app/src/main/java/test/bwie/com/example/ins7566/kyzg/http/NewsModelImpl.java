@@ -20,4 +20,11 @@ public class NewsModelImpl implements INewsModel {
         params.put("pageSize",pageSize);
         HttpFactory.create().Get(UrlUtils.getNews,params,callback);
     }
+
+    @Override
+    public void NewsDetail(String id, MyCallback callback) {
+        Map<String ,String> map=new HashMap<>();
+        map.put("id",id);
+        HttpFactory.create().Get(UrlUtils.getDetail,map,callback);
+    }
 }

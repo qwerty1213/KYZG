@@ -29,10 +29,6 @@ import test.bwie.com.example.ins7566.kyzg.http.INewsModel;
 import test.bwie.com.example.ins7566.kyzg.http.NewsModelImpl;
 import test.bwie.com.example.ins7566.kyzg.http.callback.MyCallback;
 
-/**
- * Created by Administrator on 2017/4/12.
- */
-
 public class NewsconterFragment extends BaseFragment {
 
 
