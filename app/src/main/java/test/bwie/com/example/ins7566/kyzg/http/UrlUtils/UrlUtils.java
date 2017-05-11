@@ -23,10 +23,12 @@ public class UrlUtils {
     public static final String getNewDT = BASE_URL+"action/api/tweet_list";
     //热门动弹
     public static final String ReMenDT = BASE_URL+"action/api/tweet_list";
-    /**
-     * 发表动弹
-     */
+    //发表动弹
     public static final String sendTweet = BASE_URL+"action/api/tweet_pub";
+    //我的动弹
+    public static final String mineTweet=BASE_URL+"action/api/tweet_list";
+    //轮播图
+    public static final String ipanda="http://www.ipanda.com/kehuduan/PAGE14501773768112092/index.json";
 
     /*
    动弹点赞

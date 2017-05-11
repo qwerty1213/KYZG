@@ -6,11 +6,15 @@ import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.androidkun.PullToRefreshRecyclerView;
 import com.androidkun.callback.PullToRefreshListener;
+import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
 
 import java.util.ArrayList;
@@ -21,10 +25,12 @@ import butterknife.Unbinder;
 import test.bwie.com.example.ins7566.kyzg.App;
 import test.bwie.com.example.ins7566.kyzg.R;
 import test.bwie.com.example.ins7566.kyzg.activity.MainActivity;
-import test.bwie.com.example.ins7566.kyzg.adapter.LunBotuAdapter;
+import test.bwie.com.example.ins7566.kyzg.adapter.LunBoAdapter;
 import test.bwie.com.example.ins7566.kyzg.adapter.NewsConterAdapter;
 import test.bwie.com.example.ins7566.kyzg.base.BaseFragment;
+import test.bwie.com.example.ins7566.kyzg.bean.LunBoListBean;
 import test.bwie.com.example.ins7566.kyzg.bean.NewsListBean;
+import test.bwie.com.example.ins7566.kyzg.config.ConfigFragment;
 import test.bwie.com.example.ins7566.kyzg.http.INewsModel;
 import test.bwie.com.example.ins7566.kyzg.http.NewsModelImpl;
 import test.bwie.com.example.ins7566.kyzg.http.callback.MyCallback;
@@ -35,27 +41,29 @@ public class NewsconterFragment extends BaseFragment {
     @BindView(R.id.lunbo_PullRecycler)
     PullToRefreshRecyclerView lunboPullRecycler;
     Unbinder unbinder;
-    private ViewPager LunPoTuViewPager;
+    private ViewPager viewPager;
     private NewsConterAdapter adapter;
     private List<NewsListBean.NewsBean> mList;
     private INewsModel modle;
     private int Index = 0;
     private List<View> listView;
-    private LunBotuAdapter MyAdapter;
+    private LunBoAdapter MyAdapter;
     private int currentItem = 1000000;
-    private final int CODE_start = 1;
-    private final int CODE_END = 2;
+    private final int START = 1;
+    private final int END = 2;
+    private NewsModelImpl newsModel;
+    private View view;
 
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
-                case CODE_start:
-                    LunPoTuViewPager.setCurrentItem(currentItem++);
-                    handler.sendEmptyMessageDelayed(CODE_start, 1000);
+                case START:
+                    viewPager.setCurrentItem(currentItem++);
+                    handler.sendEmptyMessageDelayed(START, 2000);
                     break;
-                case CODE_END:
-                    handler.removeMessages(CODE_start);
+                case END:
+                    handler.removeMessages(END);
                     break;
             }
         }
@@ -70,14 +78,33 @@ public class NewsconterFragment extends BaseFragment {
     @Override
     protected void initView(View view) {
 
-        getInit();
+//        getInit();
     }
 
     private void getInit() {
         //加载轮播图的
-        View view = LayoutInflater.from(getContext().getApplicationContext()).inflate(R.layout.activity_lunbotu, null);
-        LunPoTuViewPager = (ViewPager) view.findViewById(R.id.LunPoTu_ViewPager);
-        lunboPullRecycler.addHeaderView(view);
+        newsModel.ipanda(new MyCallback() {
+            @Override
+            public void onSuccess(String response) {
+                Gson gson=new Gson();
+                LunBoListBean bean=gson.fromJson(response,LunBoListBean.class);
+                //循环加载图片
+                List<LunBoListBean.ListBean> beanList= bean.getList();
+                for (int i=0;i<beanList.size();i++){
+                    view = LayoutInflater.from(getContext()).inflate(R.layout.lunbo_item, null);
+                    ImageView image = (ImageView) view.findViewById(R.id.lunbo_image);
+                    Glide.with(getContext()).load(beanList.get(i).getImage()).into(image);
+                    listView.add(view);
+                    Log.d("hahah","lunbotu"+response);
+                }
+                handler.sendEmptyMessageDelayed(START,2000);
+            }
+
+            @Override
+            public void onError(String error) {
+
+            }
+        });
         //加载布局的
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
@@ -96,7 +123,7 @@ public class NewsconterFragment extends BaseFragment {
                     public void run() {
                         lunboPullRecycler.setRefreshComplete();
                         mList.clear();
-                        initData();
+                     loadData();
                     }
                 });
             }
@@ -120,40 +147,43 @@ public class NewsconterFragment extends BaseFragment {
 
         mList = new ArrayList<>();
         listView = new ArrayList<>();
-
+        newsModel=new NewsModelImpl();
         adapter = new NewsConterAdapter(getActivity(), mList);
         lunboPullRecycler.setAdapter(adapter);
+        view=LayoutInflater.from(getContext()).inflate(R.layout.viewpager,null);
+        lunboPullRecycler.addHeaderView(view);
+        viewPager= (ViewPager) view.findViewById(R.id.viewpager);
+        MyAdapter=new LunBoAdapter(listView);
+        viewPager.setAdapter(MyAdapter);
 
     }
 
     @Override
     protected void initListener() {
       //轮播图
-        MyAdapter = new LunBotuAdapter(listView);
-        LunPoTuViewPager.setAdapter(MyAdapter);
-        LunPoTuViewPager.setCurrentItem(currentItem++);
-        handler.sendEmptyMessageDelayed(CODE_start, 2000);
-        LunPoTuViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                currentItem = position;
-            }
+      viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+          @Override
+          public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+              Index=position;
+          }
 
-            @Override
-            public void onPageSelected(int position) {
+          @Override
+          public void onPageSelected(int position) {
 
-            }
+          }
 
-            @Override
-            public void onPageScrollStateChanged(int state) {
+          @Override
+          public void onPageScrollStateChanged(int state) {
 
-            }
-        });
+          }
+      });
     }
 
     //加载数据
     @Override
     protected void loadData() {
+        modle=new NewsModelImpl();
+        getInit();
         getData();
         View view = LayoutInflater.from(getContext()).inflate(R.layout.image_item1, null);
         View view1 = LayoutInflater.from(getContext()).inflate(R.layout.image_item2, null);
@@ -207,6 +237,4 @@ public class NewsconterFragment extends BaseFragment {
             }
         });
     }
-
-
 }

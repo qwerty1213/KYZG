@@ -15,5 +15,16 @@ public interface INewsModel {
     void Blog(String type,String pageIndex,String pageSize,MyCallback callback);
     //博客详情
     void BlogDetail(String id,MyCallback callback);
-
+    //热点
+    void HotSpot(String catalog,String pageIndex,String pageSize,String show,MyCallback  callback);
+     //推荐
+    void Recommend(String type,String pageIndex,String pageSize,MyCallback callback);
+    //最新动弹
+    void NewestTweent(String uid,String pageIndex,String pageSize,MyCallback callback);
+    //热门动弹
+    void HotTweent(String uid,String pageIndex,String pageSize,MyCallback callback);
+    //我的动弹
+    void MineTweent(String uid,String pageIndex,String pageSize,MyCallback callback);
+    //轮播图
+    void ipanda( MyCallback callback);
 }

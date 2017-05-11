@@ -19,6 +19,7 @@
         </activity>
         <activity android:name=".activity.MainActivity"/>
         <activity android:name=".activity.WebActivity"/>
+        <activity android:name=".activity.BlogWebActivity"/>
     </application>
 
 </manifest>

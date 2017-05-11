@@ -43,4 +43,58 @@ public class NewsModelImpl implements INewsModel {
         map.put("id",id);
         HttpFactory.create().Get(UrlUtils.getBlogDetail,map,callback);
     }
+
+    @Override
+    public void HotSpot(String catalog, String pageIndex, String pageSize, String show, MyCallback callback) {
+        Map<String,String> params=new HashMap<>();
+        params.put("catalog",catalog);
+        params.put("pageIndex",pageIndex);
+        params.put("pageSize",pageSize);
+        params.put("show",show);
+        HttpFactory.create().Get(UrlUtils.getRedian,params,callback);
+    }
+
+    @Override
+    public void Recommend(String type, String pageIndex, String pageSize, MyCallback callback) {
+        Map<String,String> params=new HashMap<>();
+        params.put("type",type);
+        params.put("pageIndex",pageIndex);
+        params.put("pageSize",pageSize);
+        HttpFactory.create().Get(UrlUtils.getBlog,params,callback);
+    }
+
+    @Override
+    public void NewestTweent(String uid, String pageIndex, String pageSize, MyCallback callback) {
+        Map<String,String> params=new HashMap<>();
+        params.put("uid",uid);
+        params.put("pageIndex",pageIndex);
+        params.put("pageSize",pageSize);
+        HttpFactory.create().Get(UrlUtils.getNewDT,params,callback);
+    }
+
+    @Override
+    public void HotTweent(String uid, String pageIndex, String pageSize, MyCallback callback) {
+        Map<String,String> params=new HashMap<>();
+        params.put("uid",uid);
+        params.put("pageIndex",pageIndex);
+        params.put("pageSize",pageSize);
+        HttpFactory.create().Get(UrlUtils.ReMenDT,params,callback);
+
+    }
+
+    @Override
+    public void MineTweent(String uid, String pageIndex, String pageSize, MyCallback callback) {
+        Map<String,String> params=new HashMap<>();
+        params.put("uid",uid);
+        params.put("pageIndex",pageIndex);
+        params.put("pageSize",pageSize);
+        HttpFactory.create().Get(UrlUtils.mineTweet,params,callback);
+
+    }
+
+    @Override
+    public void ipanda(MyCallback callback) {
+        Map<String,String> map=new HashMap<>();
+        HttpFactory.create().Get(UrlUtils.ipanda,map,callback);
+    }
 }

@@ -3,7 +3,9 @@ package test.bwie.com.example.ins7566.kyzg.fragment.zonghe;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.androidkun.PullToRefreshRecyclerView;
 import com.androidkun.callback.PullToRefreshListener;
@@ -13,11 +15,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.Unbinder;
+import butterknife.ButterKnife;
 import test.bwie.com.example.ins7566.kyzg.R;
-import test.bwie.com.example.ins7566.kyzg.adapter.BlogAdapter;
+import test.bwie.com.example.ins7566.kyzg.adapter.NewsConterAdapter;
 import test.bwie.com.example.ins7566.kyzg.base.BaseFragment;
-import test.bwie.com.example.ins7566.kyzg.bean.BloglistBean;
+import test.bwie.com.example.ins7566.kyzg.bean.NewsListBean;
 import test.bwie.com.example.ins7566.kyzg.http.INewsModel;
 import test.bwie.com.example.ins7566.kyzg.http.NewsModelImpl;
 import test.bwie.com.example.ins7566.kyzg.http.callback.MyCallback;
@@ -26,13 +28,13 @@ import test.bwie.com.example.ins7566.kyzg.http.callback.MyCallback;
  * Created by INS7566 on 2017/5/10.
  */
 
-public class BlogFragment extends BaseFragment {
+public class HotSpotFragment extends BaseFragment {
+
     @BindView(R.id.lunbo_PullRecycler)
     PullToRefreshRecyclerView lunboPullRecycler;
-    Unbinder unbinder;
-    private BlogAdapter adapter;
-    private INewsModel modle;
-    private List<BloglistBean.BlogBean> mList;
+    private List<NewsListBean.NewsBean> mList;
+    private INewsModel model;
+    private NewsConterAdapter adapter;
     private int Index = 0;
 
     @Override
@@ -43,34 +45,34 @@ public class BlogFragment extends BaseFragment {
     @Override
     protected void initView(View view) {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        lunboPullRecycler.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL));
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        lunboPullRecycler.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
         lunboPullRecycler.setLayoutManager(linearLayoutManager);
         lunboPullRecycler.setPullRefreshEnabled(true);
         lunboPullRecycler.setLoadingMoreEnabled(true);
         lunboPullRecycler.setPullToRefreshListener(new PullToRefreshListener() {
             @Override
             public void onRefresh() {
-            lunboPullRecycler.post(new Runnable() {
-                @Override
-                public void run() {
-                    lunboPullRecycler.setRefreshComplete();
-                    mList.clear();
-                  loadData();
-                }
-            });
+                lunboPullRecycler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        lunboPullRecycler.setRefreshComplete();
+                        mList.clear();
+                        loadData();
+                    }
+                },2000);
             }
 
             @Override
             public void onLoadMore() {
-                    lunboPullRecycler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                      lunboPullRecycler.setLoadMoreComplete();
-                            Index++;
-                            loadData();
-                        }
-                    });
+                lunboPullRecycler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        lunboPullRecycler.setLoadMoreComplete();
+                        Index++;
+                        loadData();
+                    }
+                },2000);
+
             }
         });
 
@@ -78,10 +80,11 @@ public class BlogFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        modle=new NewsModelImpl();
         mList=new ArrayList<>();
-        adapter=new BlogAdapter(getActivity(),mList);
+        model=new NewsModelImpl();
+        adapter=new NewsConterAdapter(getActivity(),mList);
         lunboPullRecycler.setAdapter(adapter);
+
     }
 
     @Override
@@ -91,16 +94,15 @@ public class BlogFragment extends BaseFragment {
 
     @Override
     protected void loadData() {
-        modle.Blog("latest", String.valueOf(Index), "10", new MyCallback() {
+        model.HotSpot("5", String.valueOf(Index), "5", "", new MyCallback() {
             @Override
             public void onSuccess(String response) {
                 XStream xStream=new XStream();
-                xStream.alias("oschina",BloglistBean.class);
-                xStream.alias("blog",BloglistBean.BlogBean.class);
-                BloglistBean bloglistBean= (BloglistBean) xStream.fromXML(response);
-                mList.addAll(bloglistBean.getBlogs());
+                xStream.alias("oschina",NewsListBean.class);
+                xStream.alias("news",NewsListBean.NewsBean.class);
+                NewsListBean newsListBean= (NewsListBean) xStream.fromXML(response);
+                mList.addAll(newsListBean.getNewslist());
                 adapter.notifyDataSetChanged();
-
             }
 
             @Override
@@ -108,17 +110,17 @@ public class BlogFragment extends BaseFragment {
 
             }
         });
+
     }
 
     @Override
     protected void onHiddn() {
-        unTitleBar();
 
     }
 
     @Override
     protected void show() {
-        unTitleBar();
+
     }
 
     @Override
@@ -129,5 +131,19 @@ public class BlogFragment extends BaseFragment {
     @Override
     public void setParams(Bundle bundle) {
 
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment view
+        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+        unbinder = ButterKnife.bind(this, rootView);
+        return rootView;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 }

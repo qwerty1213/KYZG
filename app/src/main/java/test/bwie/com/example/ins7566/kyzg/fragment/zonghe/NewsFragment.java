@@ -44,12 +44,12 @@ public class NewsFragment extends BaseFragment {
     protected void initData() {
         listName = new ArrayList<>();
         mList = new ArrayList<>();
+
         //加载Fragment类
         mList.add(new NewsconterFragment());
-//        mList.add(new NewsconterFragment());
-//        mList.add(new NewsconterFragment());
-//        mList.add(new NewsconterFragment());
-
+        mList.add( new BlogFragment());
+        mList.add(new HotSpotFragment());
+        mList.add(new RecommendFragment());
         listName.add("资讯");
         listName.add("博客");
         listName.add("热点");

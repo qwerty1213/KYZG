@@ -19,6 +19,7 @@ import test.bwie.com.example.ins7566.kyzg.R;
 import test.bwie.com.example.ins7566.kyzg.base.BaseActivity;
 import test.bwie.com.example.ins7566.kyzg.base.BaseFragment;
 import test.bwie.com.example.ins7566.kyzg.config.ConfigFragment;
+import test.bwie.com.example.ins7566.kyzg.fragment.dongtanfragment.TweentFragment;
 import test.bwie.com.example.ins7566.kyzg.fragment.zonghe.NewsFragment;
 
 public class MainActivity extends BaseActivity {
@@ -79,6 +80,7 @@ public class MainActivity extends BaseActivity {
                 ConfigFragment.getInstance().init().start(NewsFragment.class).build();
                 break;
             case R.id.DongTanBtn:
+                ConfigFragment.getInstance().init().start(TweentFragment.class).build();
 
                 break;
             case R.id.FaXianBtn:
@@ -117,8 +119,6 @@ public class MainActivity extends BaseActivity {
 
             }
         }
-
-
     }
 
     public TextView getTiitle() {

@@ -6,11 +6,14 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
+/**
+ * Created by lenovo on 2017/5/2.
+ */
 
-public class LunBotuAdapter extends PagerAdapter {
+public class LunBoAdapter extends PagerAdapter {
     private List<View> mList;
 
-    public LunBotuAdapter(List<View> mList) {
+    public LunBoAdapter(List<View> mList) {
         this.mList = mList;
     }
 
@@ -21,21 +24,20 @@ public class LunBotuAdapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(View view, Object object) {
-        return view == object;
+        return view==object;
     }
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-
+        //super.destroyItem(container, position, object);
     }
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        if (container != null) {
-            container.removeView(mList.get(position % mList.size()));
+        if (container!=null){
+            container.removeView(mList.get(position%mList.size()));
         }
-        container.addView(mList.get(position % mList.size()));
-        return mList.get(position % mList.size());
-
+        container.addView(mList.get(position%mList.size()));
+        return mList.get(position%mList.size());
     }
 }
