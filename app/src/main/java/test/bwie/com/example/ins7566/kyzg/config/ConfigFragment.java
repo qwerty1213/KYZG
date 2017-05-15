@@ -18,8 +18,8 @@ public class ConfigFragment {
     private String simpleName;
 
     /*
-            单例模式,懒汉式
-             */
+    单例模式,懒汉式
+     */
     private ConfigFragment() {
         init();
     }

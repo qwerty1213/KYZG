@@ -8,6 +8,7 @@ import android.view.WindowManager;
 
 import test.bwie.com.example.ins7566.kyzg.R;
 
+
 /**
  * Created by INS7566 on 2017/5/8.
  */

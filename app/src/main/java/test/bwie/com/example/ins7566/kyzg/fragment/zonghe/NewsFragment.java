@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.RadioButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,11 +17,15 @@ import test.bwie.com.example.ins7566.kyzg.activity.MainActivity;
 import test.bwie.com.example.ins7566.kyzg.adapter.FragAdapter;
 import test.bwie.com.example.ins7566.kyzg.base.BaseFragment;
 
+import static android.R.attr.y;
+import static android.os.Build.VERSION_CODES.N;
+
 public class NewsFragment extends BaseFragment {
     Unbinder unbinder;
     private List<String> listName;
     private List<BaseFragment> mList;
     private FragAdapter adapter;
+    private RadioButton radioBtn1,radioBtn2,redioBtn3,radioBtn4;
     @BindView(R.id.newsTabLayout)
     TabLayout newsTabLayout;
     @BindView(R.id.newsViewPager)
@@ -46,7 +51,7 @@ public class NewsFragment extends BaseFragment {
         mList = new ArrayList<>();
 
         //加载Fragment类
-        mList.add(new NewsconterFragment());
+        mList.add(new ZiXun());
         mList.add( new BlogFragment());
         mList.add(new HotSpotFragment());
         mList.add(new RecommendFragment());

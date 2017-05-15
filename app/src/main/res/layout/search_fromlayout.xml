@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="13dp"
+        android:paddingTop="10dp">
+
+        <EditText
+            android:id="@+id/Search_FromEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/login_ed"
+            android:drawableLeft="@drawable/search_icon"
+            android:hint="搜索博客、软件、资讯" />
+
+        <TextView
+            android:id="@+id/Search_FromText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:text="确定"
+            android:textColor="#4db687"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:id="@+id/Search_FromLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

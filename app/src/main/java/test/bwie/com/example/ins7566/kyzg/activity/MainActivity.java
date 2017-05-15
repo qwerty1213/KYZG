@@ -1,5 +1,6 @@
 package test.bwie.com.example.ins7566.kyzg.activity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Process;
 import android.support.v4.app.FragmentManager;
@@ -19,8 +20,12 @@ import test.bwie.com.example.ins7566.kyzg.R;
 import test.bwie.com.example.ins7566.kyzg.base.BaseActivity;
 import test.bwie.com.example.ins7566.kyzg.base.BaseFragment;
 import test.bwie.com.example.ins7566.kyzg.config.ConfigFragment;
-import test.bwie.com.example.ins7566.kyzg.fragment.dongtanfragment.TweentFragment;
+import test.bwie.com.example.ins7566.kyzg.fragment.dongtanfragment.TweetFragment;
+import test.bwie.com.example.ins7566.kyzg.fragment.minefragment.MineFragment;
+import test.bwie.com.example.ins7566.kyzg.fragment.search.SesrchActivity;
 import test.bwie.com.example.ins7566.kyzg.fragment.zonghe.NewsFragment;
+
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 
 public class MainActivity extends BaseActivity {
     @BindView(R.id.Main_TitleBar)
@@ -80,17 +85,18 @@ public class MainActivity extends BaseActivity {
                 ConfigFragment.getInstance().init().start(NewsFragment.class).build();
                 break;
             case R.id.DongTanBtn:
-                ConfigFragment.getInstance().init().start(TweentFragment.class).build();
+                ConfigFragment.getInstance().init().start(TweetFragment.class).build();
 
                 break;
             case R.id.FaXianBtn:
 
                 break;
             case R.id.MineBtn:
-
+                ConfigFragment.getInstance().init().start(MineFragment.class).build();
                 break;
             case R.id.Serch_Btn:
-
+                Intent intent=new Intent(this, SesrchActivity.class);
+                startActivity(intent);
                 break;
             case R.id.AddBtn:
 
@@ -108,7 +114,9 @@ public class MainActivity extends BaseActivity {
                 "Mine_Fragment".equals(name) ||
                 "NewsFragment".equals(name)
                 ) {
-            finish();
+//           finish();
+            Process.killProcess(Process.myPid());
+            System.exit(0);
         } else {
             if (fragmentManager.getBackStackEntryCount() > 1) {
                 fragmentManager.popBackStackImmediate();//执行弹栈，立马执行
