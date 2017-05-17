@@ -21,7 +21,7 @@ public class SearchMyanger {
         boolean boo;
         ContentValues con=new ContentValues();
         con.put("name",name);
-        long ins = mDb.insert("hehe", null, con);
+        long ins = mDb.insert("search", null, con);
         if (ins>0){
             boo=true;
         }else {
@@ -30,11 +30,11 @@ public class SearchMyanger {
         return  boo;
     }
     public  void delete(){
-        mDb.delete("hehe",null,null);
+        mDb.delete("search",null,null);
     }
     public List<String> getList(){
         List<String> mList=new ArrayList<>();
-        Cursor cursor = mDb.query("hehe", null, null, null, null, null, null);
+        Cursor cursor = mDb.query("search", null, null, null, null, null, null);
         while (cursor.moveToNext()){
             String  ss=cursor.getString(cursor.getColumnIndex("name"));
             mList.add(ss);

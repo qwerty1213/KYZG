@@ -22,7 +22,8 @@ import test.bwie.com.example.ins7566.kyzg.base.BaseFragment;
 import test.bwie.com.example.ins7566.kyzg.config.ConfigFragment;
 import test.bwie.com.example.ins7566.kyzg.fragment.dongtanfragment.TweetFragment;
 import test.bwie.com.example.ins7566.kyzg.fragment.minefragment.MineFragment;
-import test.bwie.com.example.ins7566.kyzg.fragment.search.SesrchActivity;
+
+import test.bwie.com.example.ins7566.kyzg.fragment.searchFragment.Search_FromActivity;
 import test.bwie.com.example.ins7566.kyzg.fragment.zonghe.NewsFragment;
 
 import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
@@ -95,7 +96,7 @@ public class MainActivity extends BaseActivity {
                 ConfigFragment.getInstance().init().start(MineFragment.class).build();
                 break;
             case R.id.Serch_Btn:
-                Intent intent=new Intent(this, SesrchActivity.class);
+                Intent intent=new Intent(this, Search_FromActivity.class);
                 startActivity(intent);
                 break;
             case R.id.AddBtn:

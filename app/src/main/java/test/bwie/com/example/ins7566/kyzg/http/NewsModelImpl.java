@@ -88,7 +88,7 @@ public class NewsModelImpl implements INewsModel {
         params.put("uid",uid);
         params.put("pageIndex",pageIndex);
         params.put("pageSize",pageSize);
-        HttpFactory.create().Get(UrlUtils.mineTweet,params,callback);
+        HttpFactory.create().Post(UrlUtils.mineTweet,params,callback);
 
     }
 
@@ -96,5 +96,22 @@ public class NewsModelImpl implements INewsModel {
     public void ipanda(MyCallback callback) {
         Map<String,String> map=new HashMap<>();
         HttpFactory.create().Get(UrlUtils.ipanda,map,callback);
+    }
+//搜索
+    @Override
+    public void getSearch(String catalog, String content, String pageIndex, String pageSize, MyCallback callback) {
+        Map<String,String> map=new HashMap<>();
+        map.put("catalog",catalog);
+        map.put("content",content);
+        map.put("pageIndex",pageIndex);
+        map.put("pageSize",pageSize);
+        HttpFactory.create().Get(UrlUtils.getSearch,map,callback);
+    }
+
+    @Override
+    public void SerachPeople(String name, MyCallback callback) {
+        Map<String, String> map = new HashMap<>();
+        map.put("name", name);
+        HttpFactory.create().Get(UrlUtils.SerachPeople, map, callback);
     }
 }
