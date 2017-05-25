@@ -14,9 +14,6 @@ import test.bwie.com.example.ins7566.kyzg.R;
 import test.bwie.com.example.ins7566.kyzg.adapter.search.Search_PagerAdapter;
 import test.bwie.com.example.ins7566.kyzg.base.BaseFragment;
 
-/**
- * Created by Administrator on 2017/4/14.
- */
 
 public class MainSearchFragment extends BaseFragment {
 

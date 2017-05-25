@@ -1,9 +1,5 @@
 package test.bwie.com.example.ins7566.kyzg.bean.search;
 
-/**
- * Created by Administrator on 2017/4/24.
- */
-
 public class HuoDongDetailBean {
 
     private PostBean post;

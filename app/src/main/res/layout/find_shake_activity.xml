@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_shake"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/find_shake_lin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#27A503"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:id="@+id/find_shake_return"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/ic_diary_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp"
+            android:text="摇一摇" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/colorPrimary"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/iv_shake"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_shake"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="80dp"/>
+
+        <TextView
+            android:id="@+id/tv_yyy_choose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/iv_shake"
+            android:text="摇一摇抢礼品"
+            android:layout_marginTop="10dp"/>
+
+        <LinearLayout
+            android:id="@+id/yyy_net_news"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentBottom="true"
+            android:padding="10dp"
+            android:layout_marginBottom="70dp"
+            android:background="@drawable/logo_osc">
+
+            <ImageView
+                android:id="@+id/yyy_net_img"
+                android:layout_width="60dp"
+                android:layout_height="60dp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginLeft="5dp"
+                >
+
+                <TextView
+                    android:id="@+id/yyy_net_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorAccent"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"/>
+
+                <TextView
+                    android:id="@+id/yyy_net_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="11sp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="1dp"
+                    android:layout_gravity="center_vertical"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:id="@+id/imageView2"/>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <RadioGroup
+        android:id="@+id/rg_yyy_choose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:orientation="horizontal"
+        android:background="#f0f0f0"
+        android:padding="5dp">
+
+        <RadioButton
+            android:id="@+id/rb_yyy_lipin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/btn_shake_gift"
+            android:gravity="center"
+            android:checked="true"
+            android:text="礼品"
+            android:textColor="@color/colorAccent"
+            android:textSize="13dp"/>
+
+        <RadioButton
+            android:id="@+id/rb_yyy_news"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/btn_shake_info"
+            android:gravity="center"
+            android:text="资讯"
+            android:textColor="@color/colorAccent"
+            android:textSize="13dp"/>
+
+    </RadioGroup>
+</LinearLayout>

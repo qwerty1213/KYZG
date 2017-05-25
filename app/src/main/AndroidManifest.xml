@@ -2,6 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="test.bwie.com.example.ins7566.kyzg">
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
         android:name=".App"
@@ -22,6 +30,13 @@
         <activity android:name=".activity.BlogWebActivity"/>
         <activity android:name=".activity.LoginActivity"/>
         <activity android:name=".fragment.searchFragment.Search_FromActivity"/>
+        <activity android:name=".fragment.dongtanfragment.TweetPupActivity"/>
+        <activity android:name=".fragment.faxianfragment.HuoDongWebView"/>
+        <activity android:name=".fragment.faxianfragment.YaoyiyaoActivity"/>
+        <activity android:name=".fragment.faxianfragment.ShakeActivity"/>
+        <activity android:name=".fragment.faxianfragment.SaoYiSaoActivity"/>
+        <activity android:name=".activity.TweetDeatil"/>
+        <activity android:name=".fragment.jiahao.PopupColuActivity"/>
     </application>
 
 </manifest>

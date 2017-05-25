@@ -5,14 +5,36 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
     <android.support.design.widget.TabLayout
         android:id="@+id/newsTabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:background="#f6f6f6"
         app:tabIndicatorColor="#24cf5f"
         app:tabSelectedTextColor="#24cf5f"
-        app:tabTextColor="#cacaca" />
+        app:tabTextColor="#cacaca"
+        />
+        <LinearLayout
+            android:layout_weight="0.05"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_alignParentRight="true"
+            android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/addimg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_subscribe"
+           />
+        </LinearLayout>
+    </LinearLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/newsViewPager"

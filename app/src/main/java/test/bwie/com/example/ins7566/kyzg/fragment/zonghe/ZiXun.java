@@ -50,7 +50,7 @@ public class ZiXun extends BaseFragment {
     private final int END = 2;
     private ViewPager viewPager;
     private View view;
-    private RadioButton radioBut1, radioBut2, radioBut3, radioBut4;
+    private RadioButton radioBut1, radioBut2, radioBut3, radioBut4,radioBut5,radioBut6;
     List<LunBoListBean.ListBean> beanList;
     private Handler handler = new Handler() {
         @Override
@@ -120,6 +120,8 @@ public class ZiXun extends BaseFragment {
         radioBut2 = (RadioButton) view1.findViewById(R.id.RadioBut2);
         radioBut3 = (RadioButton) view1.findViewById(R.id.RadioBut3);
         radioBut4 = (RadioButton) view1.findViewById(R.id.RadioBut4);
+        radioBut5 = (RadioButton) view1.findViewById(R.id.RadioBut5);
+        radioBut6 = (RadioButton) view1.findViewById(R.id.RadioBut6);
 
         lunboPullRecycler.addHeaderView(view1);
         lunBoAdapter = new LunBotuAdapter(viewList);
@@ -144,6 +146,10 @@ public class ZiXun extends BaseFragment {
                     radioBut3.setChecked(true);
                 } else if (position % viewList.size() == 3) {
                     radioBut4.setChecked(true);
+                } else if (position % viewList.size()==4){
+                    radioBut5.setChecked(true);
+                } else if (position % viewList.size()==5){
+                    radioBut6.setChecked(true);
                 }
             }
 
@@ -158,6 +164,10 @@ public class ZiXun extends BaseFragment {
                     radioBut3.setChecked(true);
                 } else if (position % viewList.size() == 3) {
                     radioBut4.setChecked(true);
+                }else if (position % viewList.size()==4){
+                    radioBut5.setChecked(true);
+                }else if (position % viewList.size()==5){
+                    radioBut6.setChecked(true);
                 }
             }
 

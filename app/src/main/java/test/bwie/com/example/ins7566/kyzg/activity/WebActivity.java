@@ -66,7 +66,7 @@ public class WebActivity extends BaseActivity {
                 handler.obtainMessage(1, url).sendToTarget();
 
 
-                Log.i("网址是", url);
+//                Log.i("网址是", url);
                 NewsWebView.setWebViewClient(new WebViewClient());
             }
 

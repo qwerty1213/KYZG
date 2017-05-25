@@ -1,8 +1,5 @@
 package test.bwie.com.example.ins7566.kyzg.bean;
 
-/**
- * Created by Administrator on 2017/4/9.
- */
 
 public class LoginBean {
 

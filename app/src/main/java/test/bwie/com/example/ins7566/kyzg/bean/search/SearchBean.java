@@ -2,10 +2,6 @@ package test.bwie.com.example.ins7566.kyzg.bean.search;
 
 import java.util.List;
 
-/**
- * Created by Administrator on 2017/4/10.
- */
-
 public class SearchBean {
 
     private String pagesize;

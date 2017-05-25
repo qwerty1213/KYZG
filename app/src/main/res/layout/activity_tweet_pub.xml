@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="#2bb11a">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="弹一弹"
+            android:textColor="#d7d7c5"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/Tweet_SendMsg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="发送"
+            android:textColor="#d7d7c5"
+            android:textSize="20dp" />
+
+    </RelativeLayout>
+    <EditText
+        android:id="@+id/Tweet_EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="今天你想弹什么"
+        />
+
+</LinearLayout>

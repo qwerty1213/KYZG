@@ -3,7 +3,9 @@ package test.bwie.com.example.ins7566.kyzg.activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Process;
+import android.provider.Settings;
 import android.support.v4.app.FragmentManager;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -12,6 +14,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -21,11 +24,14 @@ import test.bwie.com.example.ins7566.kyzg.base.BaseActivity;
 import test.bwie.com.example.ins7566.kyzg.base.BaseFragment;
 import test.bwie.com.example.ins7566.kyzg.config.ConfigFragment;
 import test.bwie.com.example.ins7566.kyzg.fragment.dongtanfragment.TweetFragment;
+import test.bwie.com.example.ins7566.kyzg.fragment.dongtanfragment.TweetPupActivity;
+import test.bwie.com.example.ins7566.kyzg.fragment.faxianfragment.FaxianFragment;
 import test.bwie.com.example.ins7566.kyzg.fragment.minefragment.MineFragment;
 
 import test.bwie.com.example.ins7566.kyzg.fragment.searchFragment.Search_FromActivity;
 import test.bwie.com.example.ins7566.kyzg.fragment.zonghe.NewsFragment;
 
+import static android.R.attr.name;
 import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 
 public class MainActivity extends BaseActivity {
@@ -55,6 +61,7 @@ public class MainActivity extends BaseActivity {
     private SharedPreferences mShared;
     private String uid;
     private SharedPreferences.Editor mEditor;
+    private  long mFirstTime;
 
     //找组件布
     @Override
@@ -87,10 +94,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.DongTanBtn:
                 ConfigFragment.getInstance().init().start(TweetFragment.class).build();
-
                 break;
             case R.id.FaXianBtn:
-
+                ConfigFragment.getInstance().init().start(FaxianFragment.class).build();
                 break;
             case R.id.MineBtn:
                 ConfigFragment.getInstance().init().start(MineFragment.class).build();
@@ -100,7 +106,16 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
                 break;
             case R.id.AddBtn:
-
+                mShared=getSharedPreferences("data",MODE_PRIVATE);
+                uid=mShared.getString("sendMsg","");
+                mEditor=mShared.edit();
+                if (uid.isEmpty()){
+                    Intent intent1=new Intent(this,LoginActivity.class);
+                    startActivity(intent1);
+                }else {
+                    Intent intent2=new Intent(this, TweetPupActivity.class);
+                    startActivity(intent2);
+                }
                 break;
         }
     }
@@ -118,6 +133,8 @@ public class MainActivity extends BaseActivity {
 //           finish();
             Process.killProcess(Process.myPid());
             System.exit(0);
+
+
         } else {
             if (fragmentManager.getBackStackEntryCount() > 1) {
                 fragmentManager.popBackStackImmediate();//执行弹栈，立马执行
@@ -159,7 +176,6 @@ public class MainActivity extends BaseActivity {
     public TextView getTitleText() {
         return TitleText;
     }
-
     public RelativeLayout getMainTitleBar() {
         return MainTitleBar;
     }
@@ -167,4 +183,5 @@ public class MainActivity extends BaseActivity {
     public void setMainTitleBar(RelativeLayout mainTitleBar) {
         MainTitleBar = mainTitleBar;
     }
+    //双击退出
 }

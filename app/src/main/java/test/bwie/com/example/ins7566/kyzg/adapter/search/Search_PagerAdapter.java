@@ -9,11 +9,6 @@ import java.util.List;
 
 import test.bwie.com.example.ins7566.kyzg.base.BaseFragment;
 
-
-/**
- * Created by Administrator on 2017/4/17.
- */
-
 public class Search_PagerAdapter extends FragmentStatePagerAdapter {
     private List<String> ListName;
     private List<BaseFragment> mList;

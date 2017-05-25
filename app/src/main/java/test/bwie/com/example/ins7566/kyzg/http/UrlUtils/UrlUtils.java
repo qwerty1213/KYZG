@@ -41,56 +41,29 @@ public class UrlUtils {
     public static final String DianZan = BASE_URL+"action/api/tweet_like";
 
     //取消点赞
-    // public static final String DisDianZan = BASE_URL+"action/api/tweet_unlike";
-
-    /**
-     * 动弹评论
-     */
+     public static final String DisDianZan = BASE_URL+"action/api/tweet_unlike";
+    //动弹评论
     public static final String Pinglun = BASE_URL+"action/api/comment_pub";
-
-    /**
-     * 获取评论
-     */
-
+    //获取评论
     public static final String getPinglun =BASE_URL+"action/api/comment_list";
-
     //登陆
-
     public static final String Login = BASE_URL+"action/api/login_validate";
-
-    /**
-     * 获取用户信息
-     */
+    //获取用户信息
     public static final String getUserName = BASE_URL+"action/api/my_information";
-
-
     //开源软件
-
     public static final String kaiYuan = BASE_URL+"action/api/softwarecatalog_list";
-
     //开源推荐
     public static final String KY_Tuijian = BASE_URL+"action/api/software_list";
-
     //二级分类列表
     public static final String KY_Second = BASE_URL+"action/api/softwaretag_list";
-
-    /**
-     * 开源软件详情
-     */
+    //开源软件详情
     public static final String KY_Detail = BASE_URL+"action/api/software_detail";
-
-
-    /*
-    搜索中的找人
-
-     */
+    //搜索找人
     public static final String SerachPeople=BASE_URL+"action/api/find_user";
-
-
-    /**
-     * 活动
-     */
+    //活动
     public static final String HuoDong = BASE_URL+"action/api/event_list";
-
-
+    //活动详情
+    public static final String HuoDongDetail = BASE_URL+"action/api/post_detail";
+    //摇一摇
+    public static final String Yaoyiyao=BASE_URL+"action/api/rock_rock";
 }
