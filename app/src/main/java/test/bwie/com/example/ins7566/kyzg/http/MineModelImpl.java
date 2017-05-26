@@ -19,6 +19,7 @@ import test.bwie.com.example.ins7566.kyzg.http.IMineModel;
 import test.bwie.com.example.ins7566.kyzg.http.INewsModel;
 import test.bwie.com.example.ins7566.kyzg.http.UrlUtils.UrlUtils;
 import test.bwie.com.example.ins7566.kyzg.http.callback.MyCallback;
+import test.bwie.com.example.ins7566.kyzg.http.okhttp.HttpFactory;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -76,6 +77,15 @@ public class MineModelImpl implements IMineModel {
 
     }
 
+    @Override
+    public void getFensi(String uid, String relation, String pageIndex, String pageSize, MyCallback callback) {
+        Map<String ,String> map=new HashMap<>();
+        map.put("uid",uid);
+        map.put("relation",relation);
+        map.put("pageIndex",pageIndex);
+        map.put("pageSize",pageSize);
+        HttpFactory.create().Get(UrlUtils.getFenSi,map,callback);
+    }
 
 
     //保持用户登录的cookie

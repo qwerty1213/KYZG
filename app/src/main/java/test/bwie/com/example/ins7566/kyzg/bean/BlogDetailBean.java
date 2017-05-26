@@ -6,6 +6,15 @@ package test.bwie.com.example.ins7566.kyzg.bean;
 
 //@org.simpleframework.xml.Root(name = "oschina")
 public class BlogDetailBean {
+    private String notice;
+
+    public String getNotice() {
+        return notice;
+    }
+
+    public void setNotice(String notice) {
+        this.notice = notice;
+    }
 
     private BlogBean blog;
 

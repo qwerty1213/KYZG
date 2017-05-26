@@ -3,6 +3,15 @@ package test.bwie.com.example.ins7566.kyzg.bean.search;
 public class HuoDongDetailBean {
 
     private PostBean post;
+    private  String notice;
+
+    public String getNotice() {
+        return notice;
+    }
+
+    public void setNotice(String notice) {
+        this.notice = notice;
+    }
 
     public PostBean getPost() {
         return post;

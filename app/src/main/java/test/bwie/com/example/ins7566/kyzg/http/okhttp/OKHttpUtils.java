@@ -2,6 +2,7 @@ package test.bwie.com.example.ins7566.kyzg.http.okhttp;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import java.io.IOException;
 import java.security.Key;
@@ -26,6 +27,7 @@ import static android.content.Context.MODE_PRIVATE;
  */
 
 public class OKHttpUtils implements IHttp {
+    private StringBuffer sb;
     private SharedPreferences mShared;
     private SharedPreferences.Editor mEditor;
     private String cookie;
@@ -52,6 +54,7 @@ public class OKHttpUtils implements IHttp {
                     .post(builder.build())
                     .addHeader("Cookie",getCookie())
                     .build();
+            Log.d("srset","dgdfh"+getCookie());
             okHttpClient.newCall(request).enqueue(new Callback() {
                 @Override
                 public void onFailure(Call call, IOException e) {
@@ -65,7 +68,6 @@ public class OKHttpUtils implements IHttp {
 
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
-                    saveCookie(response);
                     final String string =response.body().string();
                     App.activity.runOnUiThread(new Runnable() {
                         @Override
@@ -89,25 +91,8 @@ public class OKHttpUtils implements IHttp {
         return cookie;
     }
 
-    public  void saveCookie(Response response){
-        cookie="";
-        Headers headers=response.headers();
-        Set<String> names=headers.names();
-        for (String name:names){
-            String value=headers.get(name);
-            if (name.contains("Set-Cookie")){
-                cookie+=value+"+";
-            }
-            if (cookie.length()>0){
-                cookie=cookie.substring(0,cookie.length()-1);
-            }
-        }
-        mShared=App.activity.getSharedPreferences("data",MODE_PRIVATE);
-        mEditor=mShared.edit();
-        mEditor.putString("cookie",cookie);
-        mEditor.commit();
-    }
-    @Override
+
+    /*@Override
     public void Get(String url, Map<String, String> params, final MyCallback callback) {
         OkHttpClient client = new OkHttpClient.Builder().build();
         FormBody.Builder builder = new FormBody.Builder();
@@ -116,19 +101,18 @@ public class OKHttpUtils implements IHttp {
             for (String key : keySet) {
                 String value = params.get(key);
                 builder.add(key, value);
-
             }
             Request request = new Request.Builder()
                     .url(url)
                     .post(builder.build())
+                    .addHeader("Cookie",getCookie())
                     .build();
+//            Log.d("stddy","cookie========================================="+getCookie());
             Call call = client.newCall(request);
             call.enqueue(new Callback() {
                 @Override
                 public void onFailure(Call call, IOException e) {
-
                 }
-
                 @Override
                 public void onResponse(Call call, final Response response) throws IOException {
                     final String str = response.body().string();
@@ -146,4 +130,57 @@ public class OKHttpUtils implements IHttp {
             });
         }
     }
+*/
+
+    //    get请求方式
+
+    @Override
+    public void Get(String url, Map<String, String> params, final MyCallback callBaxk) {
+        sb = new StringBuffer();
+     OkHttpClient okHttpClient = new OkHttpClient();
+        if (params != null) {
+            Set<String> keySet = params.keySet();
+            sb.append("?");
+            int count = 0;
+            for (String key : keySet) {
+                String value = params.get(key);
+                sb.append(key);
+                sb.append("=");
+                sb.append(value);
+                count++;
+                if (count > 0) {
+                    sb.append("&");
+                }
+            }
+            url = url + sb.toString();
+        }
+        Log.e("aa",url);
+        Request request = new Request.Builder()
+                .url(url)
+                .get()
+                .addHeader("cookie", getCookie())
+                .build();
+        okHttpClient.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+
+                final String str = response.body().string();
+                App.activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        callBaxk.onSuccess(String.valueOf(str));
+                    }
+                });
+
+            }
+        });
+
+
+    }
+
 }

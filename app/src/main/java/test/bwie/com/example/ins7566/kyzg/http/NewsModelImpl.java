@@ -17,98 +17,99 @@ public class NewsModelImpl implements INewsModel {
 
     @Override
     public void news(String catalog, String pageIndex, String pageSize, MyCallback callback) {
-        Map<String,String> params =new HashMap<>();
-        params.put("catalog",catalog);
-        params.put("pageIndex",pageIndex);
-        params.put("pageSize",pageSize);
-        HttpFactory.create().Get(UrlUtils.getNews,params,callback);
+        Map<String, String> params = new HashMap<>();
+        params.put("catalog", catalog);
+        params.put("pageIndex", pageIndex);
+        params.put("pageSize", pageSize);
+        HttpFactory.create().Get(UrlUtils.getNews, params, callback);
     }
 
     @Override
     public void NewsDetail(String id, MyCallback callback) {
-        Map<String ,String> map=new HashMap<>();
-        map.put("id",id);
-        HttpFactory.create().Get(UrlUtils.getDetail,map,callback);
+        Map<String, String> map = new HashMap<>();
+        map.put("id", id);
+        HttpFactory.create().Get(UrlUtils.getDetail, map, callback);
     }
 
     @Override
     public void Blog(String type, String pageIndex, String pageSize, MyCallback callback) {
-        Map<String,String> params=new HashMap<>();
-        params.put("type",type);
-        params.put("pageIndex",pageIndex);
-        params.put("pageSize",pageSize);
-        HttpFactory.create().Get(UrlUtils.getBlog,params,callback);
+        Map<String, String> params = new HashMap<>();
+        params.put("type", type);
+        params.put("pageIndex", pageIndex);
+        params.put("pageSize", pageSize);
+        HttpFactory.create().Get(UrlUtils.getBlog, params, callback);
     }
 
     @Override
     public void BlogDetail(String id, MyCallback callback) {
-        Map<String,String> map=new HashMap<>();
-        map.put("id",id);
-        HttpFactory.create().Get(UrlUtils.getBlogDetail,map,callback);
+        Map<String, String> map = new HashMap<>();
+        map.put("id", id);
+        HttpFactory.create().Get(UrlUtils.getBlogDetail, map, callback);
     }
 
     @Override
     public void HotSpot(String catalog, String pageIndex, String pageSize, String show, MyCallback callback) {
-        Map<String,String> params=new HashMap<>();
-        params.put("catalog",catalog);
-        params.put("pageIndex",pageIndex);
-        params.put("pageSize",pageSize);
-        params.put("show",show);
-        HttpFactory.create().Get(UrlUtils.getRedian,params,callback);
+        Map<String, String> params = new HashMap<>();
+        params.put("catalog", catalog);
+        params.put("pageIndex", pageIndex);
+        params.put("pageSize", pageSize);
+        params.put("show", show);
+        HttpFactory.create().Get(UrlUtils.getRedian, params, callback);
     }
 
     @Override
     public void Recommend(String type, String pageIndex, String pageSize, MyCallback callback) {
-        Map<String,String> params=new HashMap<>();
-        params.put("type",type);
-        params.put("pageIndex",pageIndex);
-        params.put("pageSize",pageSize);
-        HttpFactory.create().Get(UrlUtils.getBlog,params,callback);
+        Map<String, String> params = new HashMap<>();
+        params.put("type", type);
+        params.put("pageIndex", pageIndex);
+        params.put("pageSize", pageSize);
+        HttpFactory.create().Get(UrlUtils.getBlog, params, callback);
     }
 
     @Override
     public void NewestTweent(String uid, String pageIndex, String pageSize, MyCallback callback) {
-        Map<String,String> params=new HashMap<>();
-        params.put("uid",uid);
-        params.put("pageIndex",pageIndex);
-        params.put("pageSize",pageSize);
-        HttpFactory.create().Get(UrlUtils.getNewDT,params,callback);
+        Map<String, String> params = new HashMap<>();
+        params.put("uid", uid);
+        params.put("pageIndex", pageIndex);
+        params.put("pageSize", pageSize);
+        HttpFactory.create().Get(UrlUtils.getNewDT, params, callback);
     }
 
     @Override
     public void HotTweent(String uid, String pageIndex, String pageSize, MyCallback callback) {
-        Map<String,String> params=new HashMap<>();
-        params.put("uid",uid);
-        params.put("pageIndex",pageIndex);
-        params.put("pageSize",pageSize);
-        HttpFactory.create().Get(UrlUtils.ReMenDT,params,callback);
+        Map<String, String> params = new HashMap<>();
+        params.put("uid", uid);
+        params.put("pageIndex", pageIndex);
+        params.put("pageSize", pageSize);
+        HttpFactory.create().Get(UrlUtils.ReMenDT, params, callback);
 
     }
 
     @Override
     public void MineTweent(String uid, String pageIndex, String pageSize, MyCallback callback) {
-        Map<String,String> params=new HashMap<>();
-        params.put("uid",uid);
-        params.put("pageIndex",pageIndex);
-        params.put("pageSize",pageSize);
-        HttpFactory.create().Post(UrlUtils.mineTweet,params,callback);
+        Map<String, String> params = new HashMap<>();
+        params.put("uid", uid);
+        params.put("pageIndex", pageIndex);
+        params.put("pageSize", pageSize);
+        HttpFactory.create().Post(UrlUtils.mineTweet, params, callback);
 
     }
 
     @Override
     public void ipanda(MyCallback callback) {
-        Map<String,String> map=new HashMap<>();
-        HttpFactory.create().Get(UrlUtils.ipanda,map,callback);
+        Map<String, String> map = new HashMap<>();
+        HttpFactory.create().Get(UrlUtils.ipanda, map, callback);
     }
-//搜索
+
+    //搜索
     @Override
     public void getSearch(String catalog, String content, String pageIndex, String pageSize, MyCallback callback) {
-        Map<String,String> map=new HashMap<>();
-        map.put("catalog",catalog);
-        map.put("content",content);
-        map.put("pageIndex",pageIndex);
-        map.put("pageSize",pageSize);
-        HttpFactory.create().Get(UrlUtils.getSearch,map,callback);
+        Map<String, String> map = new HashMap<>();
+        map.put("catalog", catalog);
+        map.put("content", content);
+        map.put("pageIndex", pageIndex);
+        map.put("pageSize", pageSize);
+        HttpFactory.create().Get(UrlUtils.getSearch, map, callback);
     }
 
     @Override
@@ -117,20 +118,22 @@ public class NewsModelImpl implements INewsModel {
         map.put("name", name);
         HttpFactory.create().Get(UrlUtils.SerachPeople, map, callback);
     }
-//发表动弹
+
+    //发表动弹
     @Override
     public void sendMsg(String uid, String msg, String img, String amr, MyCallback callback) {
-        Map<String,String> map=new HashMap<>();
-        map.put("uid",uid);
-        map.put("msg",msg);
-        map.put("img",img);
-        map.put("amr",amr);
-        HttpFactory.create().Post(UrlUtils.sendTweet,map,callback);
+        Map<String, String> map = new HashMap<>();
+        map.put("uid", uid);
+        map.put("msg", msg);
+        map.put("img", img);
+        map.put("amr", amr);
+        HttpFactory.create().Post(UrlUtils.sendTweet, map, callback);
     }
-     //点赞
+
+    //点赞
     @Override
     public void DianZan(String tweetid, String uid, String ownerOfTweet, MyCallback callback) {
-        Map<String,String> map=new HashMap<>();
+        Map<String, String> map = new HashMap<>();
         map.put("tweetid", tweetid);
         map.put("uid", uid);
         map.put("ownerOfTweet", ownerOfTweet);
@@ -139,32 +142,34 @@ public class NewsModelImpl implements INewsModel {
 
     @Override
     public void Unlike(String tweetid, String uid, String ownerOfTweet, MyCallback callback) {
-        Map<String,String> map=new HashMap<>();
-        map.put("tweetid",tweetid);
-        map.put("uid",uid);
-        map.put("ownerOfTweet",ownerOfTweet);
-        HttpFactory.create().Post(UrlUtils.DisDianZan,map,callback);
+        Map<String, String> map = new HashMap<>();
+        map.put("tweetid", tweetid);
+        map.put("uid", uid);
+        map.put("ownerOfTweet", ownerOfTweet);
+        HttpFactory.create().Post(UrlUtils.DisDianZan, map, callback);
     }
-//评论
+
+    //评论
     @Override
     public void pinglun(String catalog, String id, String uid, String content, String isPostToMyzone, MyCallback callback) {
-        Map<String,String> params = new HashMap<>();
-        params.put("catalog","3");
-        params.put("id",id);
-        params.put("uid",uid);
-        params.put("content",content);
-        params.put("isPostToMyZone","0");
-        HttpFactory.create().Post(UrlUtils.Pinglun,params,callback);
+        Map<String, String> params = new HashMap<>();
+        params.put("catalog", "3");
+        params.put("id", id);
+        params.put("uid", uid);
+        params.put("content", content);
+        params.put("isPostToMyZone", "0");
+        HttpFactory.create().Post(UrlUtils.Pinglun, params, callback);
     }
+
     //获取评论
     @Override
     public void getPinlun(String catalog, String id, String pageIndex, String pagesize, MyCallback callback) {
-        Map<String,String> params = new HashMap<>();
-        params.put("catalog",catalog);
-        params.put("id",id);
-        params.put("pageIndex",pageIndex);
-        params.put("pageSize",pagesize);
-        HttpFactory.create().Get(UrlUtils.getPinglun,params,callback);
+        Map<String, String> params = new HashMap<>();
+        params.put("catalog", catalog);
+        params.put("id", id);
+        params.put("pageIndex", pageIndex);
+        params.put("pageSize", pagesize);
+        HttpFactory.create().Get(UrlUtils.getPinglun, params, callback);
     }
 
     @Override
@@ -221,10 +226,11 @@ public class NewsModelImpl implements INewsModel {
         params.put("id", id);
         HttpFactory.create().Get(UrlUtils.HuoDongDetail, params, callback);
     }
-//摇一摇
+
+    //摇一摇
     @Override
     public void Yaoyiyao(MyCallback callback) {
-        Map<String,String> map=new HashMap<>();
-        HttpFactory.create().Get(UrlUtils.Yaoyiyao,map,callback);
+        Map<String, String> map = new HashMap<>();
+        HttpFactory.create().Get(UrlUtils.Yaoyiyao, map, callback);
     }
 }

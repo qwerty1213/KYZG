@@ -5,12 +5,15 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
 import test.bwie.com.example.ins7566.kyzg.R;
 
 public class PopupColuActivity extends Activity {
+
+    private RelativeLayout relativeLayout;
 
     private ArrayList<String> channels = new ArrayList<>();
     private ArrayList<String> channels_other = new ArrayList<>();

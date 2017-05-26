@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+
     <LinearLayout
         android:id="@+id/activity_main"
         android:layout_width="match_parent"
@@ -12,7 +14,7 @@
         android:weightSum="1"
         tools:context="com.github.wangyiindicator.PopupColuActivity">
 
-        <com.github.wangyiindicator.DragGridView
+        <test.bwie.com.example.ins7566.kyzg.fragment.jiahao.DragGridView
             android:id="@+id/gridView_channel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <com.github.wangyiindicator.DragGridView
+        <test.bwie.com.example.ins7566.kyzg.fragment.jiahao.DragGridView
             android:id="@+id/gridView_channel_other"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,6 +47,5 @@
             android:stretchMode="columnWidth"
             android:verticalSpacing="8.0dp" />
     </LinearLayout>
-
 
 </ScrollView>

@@ -37,7 +37,6 @@ public class TweetAdapter extends BaseAdapter<TweetNewBean.TweetBean> {
     private String SystemDate;
     private INewsModel modle = new NewsModelImpl();
     private SharedPreferences mShared = App.activity.getSharedPreferences("data", Context.MODE_PRIVATE);
-    ;
     private SharedPreferences.Editor mEditor;
     private String teetId;
     private String uid;
@@ -47,13 +46,11 @@ public class TweetAdapter extends BaseAdapter<TweetNewBean.TweetBean> {
 
     public TweetAdapter(Context context, List<TweetNewBean.TweetBean> datas) {
         super(context, R.layout.item_zuixindongtan, datas);
-
-
     }
 
     @Override
     public void convert(final ViewHolder holder, final TweetNewBean.TweetBean Bean) {
-//      你要找对类型  不要照片来个settext
+
         holder.setText(R.id.item_newsdongtan_author_body, Bean.getBody());
         holder.setText(R.id.item_newsdongtan_author_name, Bean.getAuthor());
         //如果等于1 代表点赞过 出绿色图片 否则白色图片
@@ -78,7 +75,7 @@ public class TweetAdapter extends BaseAdapter<TweetNewBean.TweetBean> {
         //转换时间格式
 
         getDate(holder, Bean);
-        Log.d("TweetAdapter", mShared.getString("sendMsg", ""));
+//        Log.d("TweetAdapter", mShared.getString("sendMsg", ""));
 
     }
 

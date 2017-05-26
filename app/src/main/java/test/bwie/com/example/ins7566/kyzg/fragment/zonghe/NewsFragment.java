@@ -56,17 +56,22 @@ public class NewsFragment extends BaseFragment implements View.OnClickListener {
     private LinearLayout my_grid_ll;
     private boolean mFlag=true;
     private RelativeLayout mGridTitle;
-    private boolean iv_rotation = true;
+
+
     private Animation animation;
     private Animation animation1;
+    private boolean iv_rotation = true;
     private DragGridView gridView;
     private DragGridView gridView_other;
     private DragAdapter dragAdapter;
     private DragAdapter other_adapter;
+
+
     private ArrayList<BaseFragment> fragmentList = new ArrayList<BaseFragment>(); //碎片链表
     private PopupWindow popupWindow;
     private ArrayList<String> channels = new ArrayList<>();
     private ArrayList<String> channels_other = new ArrayList<>();
+
 
 
     //找ID布局文件
@@ -147,7 +152,7 @@ public class NewsFragment extends BaseFragment implements View.OnClickListener {
         switch (v.getId()){
             case R.id.addimg:
                 Intent intent=new Intent(getActivity().getApplication().getApplicationContext(), PopupColuActivity.class);
-                startActivityForResult(intent,0);
+                startActivity(intent);
         break;
         }
     }

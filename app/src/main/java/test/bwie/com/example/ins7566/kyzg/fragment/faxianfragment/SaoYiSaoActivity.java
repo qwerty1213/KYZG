@@ -52,8 +52,11 @@ public class SaoYiSaoActivity extends BaseActivity {
                 } else if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_FAILED) {
                     Toast.makeText(SaoYiSaoActivity.this, "解析二维码失败", Toast.LENGTH_LONG).show();
                 }
+            }else{
+                finish();
             }
-
+        }else{
+            finish();
         }
     }
 

@@ -1,15 +1,23 @@
 package test.bwie.com.example.ins7566.kyzg.fragment.dongtanfragment;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
+import test.bwie.com.example.ins7566.kyzg.App;
 import test.bwie.com.example.ins7566.kyzg.R;
+import test.bwie.com.example.ins7566.kyzg.activity.LoginActivity;
 import test.bwie.com.example.ins7566.kyzg.base.BaseActivity;
+import test.bwie.com.example.ins7566.kyzg.config.ConfigFragment;
 import test.bwie.com.example.ins7566.kyzg.db.MyManger;
 import test.bwie.com.example.ins7566.kyzg.http.INewsModel;
 import test.bwie.com.example.ins7566.kyzg.http.NewsModelImpl;
@@ -19,15 +27,27 @@ import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 import static android.os.Build.VERSION_CODES.N;
 
 public class TweetPupActivity extends BaseActivity {
-    @BindView(R.id.Tweet_SendMsg)
-    TextView TweetSendMsg;
-    @BindView(R.id.Tweet_EditText)
-    EditText TweetEditText;
+    @BindView(R.id.wdb_back)
+    ImageView wdbBack;
+    @BindView(R.id.add_send)
+    TextView addSend;
+    @BindView(R.id.add_edit)
+    EditText addEdit;
+    @BindView(R.id.add_tupian)
+    ImageView addTupian;
+    @BindView(R.id.add_bieren)
+    ImageView addBieren;
+    @BindView(R.id.add_huati)
+    ImageView addHuati;
+    @BindView(R.id.add_biaoqing)
+    ImageView addBiaoqing;
     private SharedPreferences mShared;
     private INewsModel modle;
-    private String sendMsg;
-    private MyManger manger;
-    private String id;
+    private String uid;
+
+    private String msg;
+
+
 
     @Override
     protected int getLayoutId() {
@@ -38,9 +58,9 @@ public class TweetPupActivity extends BaseActivity {
     protected void init() {
         modle = new NewsModelImpl();
         mShared = getSharedPreferences("data", MODE_PRIVATE);
-        sendMsg = mShared.getString("sendMsg", "");
-        manger = new MyManger(getApplicationContext());
-//        id = manger.QueryUid();
+        uid = mShared.getString("sendMsg", "");
+
+
     }
 
     @Override
@@ -51,15 +71,48 @@ public class TweetPupActivity extends BaseActivity {
     @Override
     protected void loadData() {
 
+    }
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
+
+
+    @OnClick({R.id.wdb_back, R.id.add_send})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.wdb_back:
+                App.activity.onBackPressed();
+                break;
+            case R.id.add_send:
+                if (addEdit.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "请输入内容", Toast.LENGTH_SHORT).show();
+                } else {
+                    sendMsg();
+                }
+                break;
+        }
     }
 
     private void sendMsg() {
-        modle.sendMsg(sendMsg, TweetEditText.getText().toString(), "", "", new MyCallback() {
+
+        if (uid.isEmpty()){
+
+            Intent intent=new Intent(TweetPupActivity.this,LoginActivity.class);
+            startActivity(intent);
+        }
+        msg=addEdit.getText().toString();
+        modle.sendMsg(uid, msg, "", "", new MyCallback() {
+
             @Override
             public void onSuccess(String response) {
-//                Log.d("TweetPupActivity+我的是", response);
-//                Toast.makeText(TweetPupActivity.this, response, Toast.LENGTH_SHORT).show();
+//                FragmentBuilder.getInstance().start(MyFraA.class).isBack(true).build();
+                Log.d("动弹发表","动弹id"+uid);
+                Log.d("动弹发送内容","动弹id"+msg);
+                Log.d("动弹发表结果","===========///////"+response);
                 onBackPressed();
             }
 
@@ -70,22 +123,4 @@ public class TweetPupActivity extends BaseActivity {
         });
     }
 
-
-    @OnClick(R.id.Tweet_SendMsg)
-    public void onViewClicked() {
-        if(TweetEditText.getText().toString().isEmpty()){
-            Toast.makeText(this, "请输入内容", 0).show();
-        }else{
-            sendMsg();
-            Toast.makeText(this, "正在发表动弹", Toast.LENGTH_SHORT).show();
-            Toast.makeText(this, "你的动弹发表成功", Toast.LENGTH_SHORT).show();
-        }
-
-    }
-
-    //退出键
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-    }
 }

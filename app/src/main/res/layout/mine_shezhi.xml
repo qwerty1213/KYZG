@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#2ECB0F">
+
+        <ImageView
+            android:id="@+id/mine_shezhi_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/ic_diary_back"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_toRightOf="@id/mine_shezhi_back"
+            android:text="设置详情"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:background="#e6e3e3"
+        ></LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/ming_shezhi_qinglihuancun"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffff">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:paddingLeft="10dp"
+            android:text="清理缓存"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="15dp"
+            android:text="516.KB"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e6e3e3"
+        ></LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/mine_shezhi_tuichu"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffff">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="双击退出"
+            android:paddingLeft="10dp"
+            android:textStyle="bold"
+            />
+
+
+    </RelativeLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:background="#e6e3e3"
+        ></LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/mine_shezhi_yijianfankui"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffff">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="意见反馈"
+            android:paddingLeft="10dp"
+            android:textStyle="bold"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mine_shezhi_guanyuwomen"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffff">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="关于我们"
+            android:paddingLeft="10dp"
+            android:textStyle="bold"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mine_shezhi_jianchagengxinn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffff">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="检查更新"
+            android:paddingLeft="10dp"
+            android:textStyle="bold"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:background="#e6e3e3"
+        ></LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/mine_shezhi_zhuxiao"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffff">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="注销"
+            android:paddingLeft="10dp"
+            android:textStyle="bold"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:background="#e6e3e3"
+        ></LinearLayout>
+</LinearLayout>

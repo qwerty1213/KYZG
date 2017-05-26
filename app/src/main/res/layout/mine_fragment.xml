@@ -24,6 +24,7 @@
                 android:src="@drawable/ic_setting" />
 
             <ImageView
+                android:id="@+id/mine_erweima"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_alignParentRight="true"
@@ -156,6 +157,7 @@
             android:background="#ffff">
 
             <ImageView
+                android:paddingLeft="10dp"
                 android:id="@+id/message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -177,6 +179,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="15dp"
+                android:paddingRight="10dp"
                 android:src="@drawable/ic_arrow_right" />
         </RelativeLayout>
 
@@ -191,6 +194,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:paddingLeft="10dp"
                 android:src="@drawable/ic_my_blog" />
 
             <TextView
@@ -208,6 +212,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="15dp"
+                android:paddingRight="10dp"
                 android:src="@drawable/ic_arrow_right" />
         </RelativeLayout>
 
@@ -222,6 +227,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:paddingLeft="10dp"
                 android:src="@drawable/ic_my_question" />
 
             <TextView
@@ -239,6 +245,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="15dp"
+                android:paddingRight="10dp"
                 android:src="@drawable/ic_arrow_right" />
         </RelativeLayout>
 
@@ -253,6 +260,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:paddingLeft="10dp"
                 android:src="@drawable/ic_my_event" />
 
             <TextView
@@ -270,6 +278,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="15dp"
+                android:paddingRight="10dp"
                 android:src="@drawable/ic_arrow_right" />
         </RelativeLayout>
 
@@ -284,6 +293,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:paddingLeft="10dp"
                 android:src="@drawable/ic_my_team" />
 
             <TextView
@@ -301,6 +311,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="15dp"
+                android:paddingRight="10dp"
                 android:src="@drawable/ic_arrow_right" />
         </RelativeLayout>
 

@@ -8,4 +8,5 @@ import test.bwie.com.example.ins7566.kyzg.http.callback.MyCallback;
 
 public interface IMineModel {
     void Login(String username, String pwd, String keep_login, MyCallback callback);
+    void getFensi(String uid,String relation,String pageIndex,String pageSize,MyCallback callback);
 }

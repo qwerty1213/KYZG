@@ -9,7 +9,15 @@ import java.util.List;
 
 //@org.simpleframework.xml.Root(name = "oschina")
 public class BloglistBean {
+    public String getNotice() {
+        return notice;
+    }
 
+    public void setNotice(String notice) {
+        this.notice = notice;
+    }
+
+    private  String notice;
     private String pagesize;
     private List<BlogBean> blogs;
 

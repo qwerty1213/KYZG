@@ -155,8 +155,6 @@ public class TweetDeatil extends BaseActivity implements View.OnClickListener {
 
             }
         });
-
-
     }
 
     /**
@@ -186,15 +184,11 @@ public class TweetDeatil extends BaseActivity implements View.OnClickListener {
         }
     }
 
-
     @OnClick(R.id.TweetDetail_Back)
     public void onViewClicked() {
         onBackPressed();
     }
-
-    /**
-     * 返回
-     */
+//返回
     @Override
     public void onBackPressed() {
         super.onBackPressed();

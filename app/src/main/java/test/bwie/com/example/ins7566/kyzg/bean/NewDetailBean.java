@@ -3,6 +3,15 @@ package test.bwie.com.example.ins7566.kyzg.bean;
 import java.util.List;
 
 public class NewDetailBean {
+    private  String notice;
+
+    public String getNotice() {
+        return notice;
+    }
+
+    public void setNotice(String notice) {
+        this.notice = notice;
+    }
 
     private NewsBean news;
 

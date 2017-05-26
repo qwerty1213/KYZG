@@ -30,9 +30,7 @@ public class UrlUtils {
     //轮播图
     public static final String ipanda="http://www.ipanda.com/kehuduan/PAGE14501773768112092/index.json";
 
-    /*
-   动弹点赞
-    */
+
 
     /**
      * 获取粉丝关注
